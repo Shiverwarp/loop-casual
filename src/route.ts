@@ -102,7 +102,6 @@ export const routing: string[] = [
   "Bat/Finish",
 
   // Obtain available keys before attempting the daily dungeon
-  "Keys/Deck",
   "Keys/Lockpicking",
 
   "Tower/Finish",

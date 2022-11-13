@@ -347,14 +347,6 @@ export const KeysQuest: Quest = {
   name: "Keys",
   tasks: [
     {
-      name: "Deck",
-      after: [],
-      completed: () => get("_deckCardsDrawn") > 0,
-      do: () => cliExecute("cheat tower"),
-      limit: { tries: 1 },
-      freeaction: true,
-    },
-    {
       name: "Lockpicking",
       after: ["Deck"],
       completed: () => !have($skill`Lock Picking`) || get("lockPicked"),
@@ -425,7 +417,7 @@ export const KeysQuest: Quest = {
     },
     {
       name: "Finish",
-      after: ["Deck", "Lockpicking", "Malware", "Daily Dungeon"],
+      after: ["Lockpicking", "Malware", "Daily Dungeon"],
       completed: () => keyCount() >= 3,
       do: (): void => {
         throw "Unable to obtain enough fat loot tokens";
