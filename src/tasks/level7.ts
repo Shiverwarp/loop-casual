@@ -6,7 +6,6 @@ import {
   myLevel,
   runChoice,
   toUrl,
-  useSkill,
   visitUrl,
 } from "kolmafia";
 import {

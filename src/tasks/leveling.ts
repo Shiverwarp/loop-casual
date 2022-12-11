@@ -1,31 +1,19 @@
 import {
-  adv1,
   buy,
   cliExecute,
-  create,
-  eat,
-  effectModifier,
   familiarWeight,
   mallPrice,
   myClass,
   myFullness,
-  fullnessLimit,
-  myHp,
   myLevel,
-  myMaxhp,
   myPrimestat,
   runChoice,
-  runCombat,
-  totalFreeRests,
   use,
-  useSkill,
   visitUrl,
-  weightAdjustment,
 } from "kolmafia";
 import {
   $class,
   $effect,
-  $effects,
   $familiar,
   $item,
   $items,
@@ -33,20 +21,19 @@ import {
   $monster,
   $skill,
   $stat,
-  ChateauMantegna,
   ensureEffect,
   get,
   getKramcoWandererChance,
   have,
   Macro,
   set,
-  Witchess,
 } from "libram";
 import { Quest } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
 import { args } from "../main";
 import { acquire, eatSafe } from "./diet";
 
+/*
 function primestatId(): number {
   switch (myPrimestat()) {
     case $stat`Muscle`:
@@ -58,6 +45,7 @@ function primestatId(): number {
   }
   return 1;
 }
+*/
 
 export const LevelingQuest: Quest = {
   name: "Leveling",
