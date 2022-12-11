@@ -139,7 +139,7 @@ const spleenCleaners = new Map([
   [$item`mojo filter`, 1],
 ]);
 
-function acquire(qty: number, item: Item, maxPrice?: number, throwOnFail = true): number {
+export function acquire(qty: number, item: Item, maxPrice?: number, throwOnFail = true): number {
   if (!item.tradeable || (maxPrice !== undefined && maxPrice <= 0)) return 0;
   if (maxPrice === undefined) throw `No price cap for ${item.name}.`;
 
@@ -164,7 +164,7 @@ function argmax<T>(values: [T, number][]): T {
   )[0];
 }
 
-function eatSafe(qty: number, item: Item, mpa: number) {
+export function eatSafe(qty: number, item: Item, mpa: number) {
   if (!get("_milkOfMagnesiumUsed")) {
     acquire(1, $item`milk of magnesium`, 5 * mpa);
     use($item`milk of magnesium`);
