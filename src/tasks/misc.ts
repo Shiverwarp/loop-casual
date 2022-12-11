@@ -348,7 +348,7 @@ export const KeysQuest: Quest = {
   tasks: [
     {
       name: "Lockpicking",
-      after: ["Deck"],
+      after: [],
       completed: () => !have($skill`Lock Picking`) || get("lockPicked"),
       do: (): void => {
         useSkill($skill`Lock Picking`);
@@ -403,7 +403,7 @@ export const KeysQuest: Quest = {
     },
     {
       name: "Daily Dungeon",
-      after: ["Deck", "Lockpicking", "Malware"],
+      after: ["Lockpicking", "Malware"],
       acquire: [{ item: $item`Pick-O-Matic lockpicks` }, { item: $item`eleven-foot pole` }],
       completed: () => get("dailyDungeonDone") || keyCount() >= 3,
       do: $location`The Daily Dungeon`,
