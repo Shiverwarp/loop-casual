@@ -307,10 +307,13 @@ export const TowerQuest: Quest = {
     {
       name: "Wall of Skin",
       after: ["Door"],
-      prepare: () => useSkill($skill`Cannelloni Cocoon`),
+      prepare: () => {
+        useSkill($skill`Cannelloni Cocoon`);
+        useSkill($skill`Vent Rage Gland`);
+      },
       completed: () => step("questL13Final") > 6,
       do: $location`Tower Level 1`,
-      effects: $effects`Spiky Shell`,
+      effects: $effects`Spiky Shell, Feeling Nervous`,
       outfit: { familiar: $familiar`Imitation Crab`, equip: $items`bejeweled cufflinks` },
       boss: true,
       combat: new CombatStrategy().macro(new Macro().attack().repeat()),
