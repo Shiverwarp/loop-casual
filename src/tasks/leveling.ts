@@ -274,7 +274,7 @@ export const LevelingQuest: Quest = {
           get: () => cliExecute("fold makeshift garbage shirt"),
         },
         {
-          item: $item`Unwrapped knock-off retro superhero cape`,
+          item: $item`unwrapped knock-off retro superhero cape`,
           get: () => cliExecute("retrocape heck kill"),
         },
       ],
@@ -295,7 +295,7 @@ export const LevelingQuest: Quest = {
         .abort(), // error on everything except sausage goblin
       outfit: {
         modifier: "mainstat, 4exp",
-        equip: $items`Kramco Sausage-o-Matic™, makeshift garbage shirt, Unwrapped knock-off retro superhero cape, Pocket Professor memory chip`,
+        equip: $items`Kramco Sausage-o-Matic™, makeshift garbage shirt, unwrapped knock-off retro superhero cape, Pocket Professor memory chip`,
         familiar: $familiar`Pocket Professor`,
       },
       limit: { tries: 1 },
