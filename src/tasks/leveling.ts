@@ -53,11 +53,8 @@ export const LevelingQuest: Quest = {
     {
       name: "Buffs",
       after: [],
-      ready: () => get("getawayCampsiteUnlocked"),
-      completed: () =>
-        have($effect`That's Just Cloud-Talk, Man`) ||
-        get("_campAwayCloudBuffs", 0) > 0 ||
-        myLevel() >= args.levelto,
+      ready: () => !get("_aprilShower"),
+      completed: () => get("_aprilShower", false) || myLevel() >= args.levelto,
       do: () => {
         visitUrl("place.php?whichplace=campaway&action=campaway_sky");
         if (mallPrice($item`honey stick`) <= 5000) {
