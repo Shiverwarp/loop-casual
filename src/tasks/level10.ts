@@ -80,7 +80,7 @@ export const GiantQuest: Quest = {
       do: $location`The Castle in the Clouds in the Sky (Top Floor)`,
       outfit: { equip: $items`Mohawk wig`, modifier: "-combat" },
       combat: new CombatStrategy().killHard($monster`Burning Snake of Fire`),
-      choices: { 675: 4, 676: 4, 677: 4, 678: 1, 679: 1, 1431: 4 },
+      choices: { 675: 4, 676: 4, 677: 2, 678: 1, 679: 1, 1431: 4 },
       limit: { soft: 20 },
     },
     {
