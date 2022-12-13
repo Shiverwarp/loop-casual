@@ -14,6 +14,7 @@ import {
 import {
   $class,
   $effect,
+  $effects,
   $familiar,
   $item,
   $items,
@@ -309,6 +310,7 @@ export const LevelingQuest: Quest = {
         equip: $items`teacher's pen, grey down vest`,
         familiar: $familiar`Grey Goose`,
       },
+      effects: $effects`Curiosity of Br'er Tarrypin`,
       limit: { tries: 3 },
       freecombat: true,
     },
@@ -319,7 +321,9 @@ export const LevelingQuest: Quest = {
       ready: () => myClass() === $class`Seal Clubber`,
       completed: () => get("_sealsSummoned") >= 10 || myLevel() >= args.levelto,
       do: () => {
-        acquire(1, $item`seal-blubber candle`);
+        if (!have($item`seal-blubber candle`)) {
+          buy(1, $item`seal-blubber candle`);
+        }
         use($item`figurine of a wretched-looking seal`);
         runChoice(1);
       },
@@ -329,6 +333,7 @@ export const LevelingQuest: Quest = {
         equip: $items`teacher's pen, grey down vest`,
         familiar: $familiar`Grey Goose`,
       },
+      effects: $effects`Curiosity of Br'er Tarrypin`,
       limit: { tries: 10 },
       freecombat: true,
     },
@@ -364,6 +369,7 @@ export const LevelingQuest: Quest = {
         equip: $items`makeshift garbage shirt, unbreakable umbrella, teacher's pen, grey down vest`,
         familiar: $familiar`Grey Goose`,
       },
+      effects: $effects`Curiosity of Br'er Tarrypin`,
       limit: { tries: 11 },
       freecombat: true,
     },
