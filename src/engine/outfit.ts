@@ -69,7 +69,7 @@ export function equipDefaults(outfit: Outfit): void {
     outfit.equip($familiar`Temporal Riftlet`);
   } else if (have($item`gnomish housemaid's kgnee`)) {
     outfit.equip($familiar`Reagnimated Gnome`);
-  } else outfit.equip($familiar`Galloping Grill`);
+  } else outfit.equip($familiar`Cookbookbat`);
 
   const commonFamiliarEquips = new Map<Familiar, Item>([
     [$familiar`Melodramedary`, $item`dromedary drinking helmet`],
