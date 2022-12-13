@@ -157,7 +157,7 @@ const Zepplin: Task[] = [
     do: $location`A Mob of Zeppelin Protesters`,
     combat: new CombatStrategy().killHard($monster`The Nuge`),
     choices: { 856: 1, 857: 1, 858: 1, 866: 2, 1432: 1 },
-    outfit: { modifier: "sleaze dmg, sleaze spell dmg", familiar: $familiar`Left-Hand Man` },
+    outfit: { modifier: "sleaze dmg, sleaze spell dmg", familiar: $familiar`Disembodied Hand` },
     freeaction: true, // fully maximize outfit
     limit: { tries: 5, message: "Maybe your available sleaze damage is too low." },
   },
