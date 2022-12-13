@@ -300,7 +300,7 @@ export const LevelingQuest: Quest = {
     },
     {
       name: "Oliver's Fights",
-      after: [],
+      after: ["Buffs"],
       acquire: [],
       completed: () => get("_speakeasyFreeFights") >= 3 || myLevel() >= args.levelto,
       do: $location`An Unusually Quiet Barroom Brawl`,
@@ -315,7 +315,7 @@ export const LevelingQuest: Quest = {
     },
     {
       name: "Seals",
-      after: [],
+      after: ["Buffs"],
       acquire: [],
       ready: () => myClass() === $class`Seal Clubber`,
       completed: () => get("_sealsSummoned") >= 10 || myLevel() >= args.levelto,
@@ -334,7 +334,7 @@ export const LevelingQuest: Quest = {
     },
     {
       name: "Neverending Party",
-      after: [],
+      after: ["Pop Gooso"],
       acquire: [
         {
           item: $item`makeshift garbage shirt`,
@@ -372,7 +372,7 @@ export const LevelingQuest: Quest = {
       combat: new CombatStrategy()
         .macro(() => Macro.trySkill($skill`Convert Matter to Protein`))
         .killHard(),
-      after: [],
+      after: ["Buffs"],
       acquire: [
         {
           item: $item`makeshift garbage shirt`,
