@@ -56,7 +56,6 @@ export const LevelingQuest: Quest = {
       ready: () => !get("_aprilShower"),
       completed: () => get("_aprilShower", false) || myLevel() >= args.levelto,
       do: () => {
-        visitUrl("place.php?whichplace=campaway&action=campaway_sky");
         if (mallPrice($item`honey stick`) <= 5000) {
           ensureEffect($effect`Stuck That Way`);
         }
@@ -320,6 +319,7 @@ export const LevelingQuest: Quest = {
       ready: () => myClass() === $class`Seal Clubber`,
       completed: () => get("_sealsSummoned") >= 10 || myLevel() >= args.levelto,
       do: () => {
+        acquire(1, $item`seal-blubber candle`);
         use($item`figurine of a wretched-looking seal`);
         runChoice(1);
       },
