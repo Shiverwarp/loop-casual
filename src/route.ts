@@ -23,11 +23,14 @@ export const routing: string[] = [
   "Leveling/Chateau",
 
   // Then do the scaling leveling
+  "Leveling/Oliver's Fights",
+  "Leveling/Seals",
   "Leveling/LOV Tunnel",
   "Leveling/Witchess",
   "Leveling/God Lobster",
   "Leveling/Machine Elf",
   "Leveling/Neverending Party",
+  "Leveling/Pop Gooso",
   "Leveling/Sausage Fights",
   "Diet/Consume",
   "Misc/Protonic Ghost", // whenever ghosts are ready
