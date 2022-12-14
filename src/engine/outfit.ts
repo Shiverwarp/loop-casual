@@ -63,7 +63,7 @@ export function equipDefaults(outfit: Outfit): void {
     if (myBasestat($stat`mysticality`) >= 25) outfit.equip($item`Mr. Cheeng's spectacles`);
   }
 
-  if (get("camelSpit") < 100 && get("cyrptNookEvilness") > 25) {
+  if (get("camelSpit") < 100) {
     outfit.equip($familiar`Melodramedary`);
   } else if (have($familiar`Temporal Riftlet`)) {
     outfit.equip($familiar`Temporal Riftlet`);
