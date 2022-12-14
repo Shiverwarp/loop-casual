@@ -339,7 +339,7 @@ export const LevelingQuest: Quest = {
     },
     {
       name: "Neverending Party",
-      after: ["Pop Gooso"],
+      after: ["Buffs"],
       acquire: [
         {
           item: $item`makeshift garbage shirt`,
@@ -378,7 +378,7 @@ export const LevelingQuest: Quest = {
       combat: new CombatStrategy()
         .macro(() => Macro.trySkill($skill`Convert Matter to Protein`))
         .killHard(),
-      after: ["Buffs"],
+      after: ["Seals"],
       acquire: [
         {
           item: $item`makeshift garbage shirt`,
