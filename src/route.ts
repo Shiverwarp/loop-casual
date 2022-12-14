@@ -15,7 +15,7 @@ export const routing: string[] = [
 
   // Start with the basic leveling tasks
   "Toot/Finish",
-  "Leveling/Cloud Talk",
+  "Leveling/Buffs",
   "Leveling/Daycare",
   "Leveling/Bastille",
   "Leveling/Leaflet",
