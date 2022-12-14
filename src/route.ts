@@ -29,8 +29,8 @@ export const routing: string[] = [
   "Leveling/Witchess",
   "Leveling/God Lobster",
   "Leveling/Machine Elf",
-  "Leveling/Neverending Party",
   "Leveling/Pop Gooso",
+  "Leveling/Neverending Party",
   "Leveling/Sausage Fights",
   "Diet/Consume",
   "Misc/Protonic Ghost", // whenever ghosts are ready
