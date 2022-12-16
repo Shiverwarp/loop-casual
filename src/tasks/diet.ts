@@ -147,9 +147,9 @@ function priceToCraft(item: Item) {
   if (item.tradeable) {
     return mallPrice(item);
   }
-  var total = 0;
+  let total = 0;
   const ingredients = getIngredients(item);
-  for (var i in ingredients) {
+  for (const i in ingredients) {
     total += priceToCraft($item`${i}`) * ingredients[i];
   }
   return total;
@@ -272,9 +272,9 @@ function recipeKnown(item: Item) {
   if ($items`Boris's bread, roasted vegetable of Jarlsberg, Pete's rich ricotta`.includes(item)) {
     return !get(`unknownRecipe${toInt(item)}`);
   }
-  var allComponentsKnown = !get(`unknownRecipe${toInt(item)}`);
+  let allComponentsKnown = !get(`unknownRecipe${toInt(item)}`);
   const ingredients = getIngredients(item);
-  for (var i in ingredients) {
+  for (const i in ingredients) {
     allComponentsKnown = allComponentsKnown && recipeKnown($item`${i}`);
   }
   return allComponentsKnown;
@@ -285,14 +285,14 @@ function cookBookBatMenu(): MenuItem<MenuData>[] {
       - plain calzone, because the +ML buff may not be desirable
       - Deep Dish of Legend, because the +familiar weight buff is best saved for garbo
   */
-  var cookBookBatFoods = $items`Boris's bread, roasted vegetable of Jarlsberg, Pete's rich ricotta, roasted vegetable focaccia, baked veggie ricotta casserole, Calzone of Legend, Pizza of Legend`;
+  const cookBookBatFoods = $items`Boris's bread, roasted vegetable of Jarlsberg, Pete's rich ricotta, roasted vegetable focaccia, baked veggie ricotta casserole, Calzone of Legend, Pizza of Legend`;
 
-  var legendaryPizzasEaten: Item[] = [];
+  const legendaryPizzasEaten: Item[] = [];
   if (get("calzoneOfLegendEaten")) legendaryPizzasEaten.push($item`Calzone of Legend`);
   if (get("pizzaOfLegendEaten")) legendaryPizzasEaten.push($item`Pizza of Legend`);
   if (get("deepDishOfLegendEaten")) legendaryPizzasEaten.push($item`Deep Dish of Legend`);
 
-  var cookBookBatFoodAvailable = cookBookBatFoods.filter(
+  const cookBookBatFoodAvailable = cookBookBatFoods.filter(
     (food) => recipeKnown(food) && !legendaryPizzasEaten.includes(food)
   );
   return cookBookBatFoodAvailable.map(
