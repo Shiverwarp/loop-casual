@@ -324,8 +324,8 @@ export interface RunawaySource extends CombatResource {
 
 // Gear and familiar to use for runaways (i.e., Bandersnatch or Stomping Boots)
 const familiarPants =
-  $items`repaid diaper, Great Wolf's beastly trousers, Greaves of the Murk Lord`.find((item) =>
-    have(item)
+  $items`repaid diaper, Great Wolf's beastly trousers, Greaves of the Murk Lord, porcelain plus-fours`.find(
+    (item) => have(item)
   );
 const familiarEquip = have($item`astral pet sweater`)
   ? $item`astral pet sweater`
@@ -335,7 +335,7 @@ const familiarEquip = have($item`astral pet sweater`)
   ? $item`luck incense`
   : null;
 const familiarGear = [
-  ...$items`Daylight Shavings Helmet, Buddy Bjorn, Stephen's lab coat, hewn moon-rune spoon`,
+  ...$items`Stephen's lab coat, hewn moon-rune spoon, lucky rabbitfish fin`,
   ...(familiarEquip ? [familiarEquip] : []),
   ...(familiarPants ? [familiarPants] : []),
 ];
