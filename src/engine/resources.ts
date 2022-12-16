@@ -397,7 +397,6 @@ export const runawaySources: RunawaySource[] = [
       have(runawayFamiliar) &&
       availableFamiliarRunaways(5) > get("_banderRunaways"), // 5 from iFlail
     prepare: (): void => {
-      bjornifyFamiliar($familiar`Gelatinous Cubeling`);
       if (
         floor((familiarWeight(runawayFamiliar) + weightAdjustment()) / 5) <= get("_banderRunaways")
       ) {
@@ -434,7 +433,7 @@ export const runawaySources: RunawaySource[] = [
     },
     equip: {
       familiar: runawayFamiliar,
-      equip: [...familiarGear, $item`iFlail`, $item`familiar scrapbook`],
+      equip: [...familiarGear, $item`iFlail`],
     },
     do: new Macro().runaway(),
     chance: () => 1,
