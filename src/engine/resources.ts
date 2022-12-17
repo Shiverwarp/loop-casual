@@ -1,6 +1,5 @@
 import { OutfitSpec } from "grimoire-kolmafia";
 import {
-  bjornifyFamiliar,
   buy,
   cliExecute,
   Familiar,
@@ -421,7 +420,6 @@ export const runawaySources: RunawaySource[] = [
       have(runawayFamiliar) &&
       availableFamiliarRunaways(10) > get("_banderRunaways"), // 10 from iFlails
     prepare: (): void => {
-      bjornifyFamiliar($familiar`Gelatinous Cubeling`);
       if (
         floor((familiarWeight(runawayFamiliar) + weightAdjustment()) / 5) <= get("_banderRunaways")
       ) {
