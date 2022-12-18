@@ -359,6 +359,8 @@ export const LevelingQuest: Quest = {
             return new Macro().skill($skill`Feel Pride`);
           } else if (get("_neverendingPartyFreeTurns") >= 6 && have($item`cosmic bowling ball`)) {
             return new Macro().skill($skill`Bowl Sideways`);
+          } else if (get("_neverendingPartyFreeTurns") >= 9) {
+            return new Macro().skill($skill`Convert Matter to Protein`);
           } else {
             return new Macro();
           }
