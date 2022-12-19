@@ -140,7 +140,7 @@ const Cranny: Task[] = [
           .trySkill($skill`Slay the Dead`)
           .skill($skill`Saucegeyser`)
           .repeat(),
-        $monsters`swarm of ghuol whelps, big swarm of ghuol whelps, giant swarm of ghuol whelps, huge ghuol`
+        $monsters`swarm of ghuol whelps, big swarm of ghuol whelps, giant swarm of ghuol whelps, huge ghuol, gluttonous ghuol, gaunt ghuol`
       )
       .macro(slay_macro),
     limit: { turns: 25 },
