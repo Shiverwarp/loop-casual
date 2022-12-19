@@ -394,7 +394,7 @@ export const runawaySources: RunawaySource[] = [
     available: () =>
       runawayFamiliar !== $familiar`none` &&
       have(runawayFamiliar) &&
-      availableFamiliarRunaways(5) > get("_banderRunaways"), // 5 from iFlail
+      availableFamiliarRunaways(0) > get("_banderRunaways"), // 5 from iFlail
     prepare: (): void => {
       if (
         floor((familiarWeight(runawayFamiliar) + weightAdjustment()) / 5) <= get("_banderRunaways")
@@ -418,7 +418,7 @@ export const runawaySources: RunawaySource[] = [
     available: () =>
       runawayFamiliar !== $familiar`none` &&
       have(runawayFamiliar) &&
-      availableFamiliarRunaways(10) > get("_banderRunaways"), // 10 from iFlails
+      availableFamiliarRunaways(0) > get("_banderRunaways"), // 10 from iFlails
     prepare: (): void => {
       if (
         floor((familiarWeight(runawayFamiliar) + weightAdjustment()) / 5) <= get("_banderRunaways")
