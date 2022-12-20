@@ -328,7 +328,7 @@ const familiarPants =
   );
 const familiarEquip = have($item`astral pet sweater`)
   ? $item`astral pet sweater`
-  : have($familiar`Cornbeefadon`)
+  : have($item`amulet coin`)
   ? $item`amulet coin`
   : have($familiar`Mu`)
   ? $item`luck incense`
