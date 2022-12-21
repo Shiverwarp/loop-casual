@@ -11,6 +11,7 @@ import {
   Monster,
   myLevel,
   myTurncount,
+  print,
   retrieveItem,
   Skill,
   totalTurnsPlayed,
@@ -398,6 +399,7 @@ export const runawaySources: RunawaySource[] = [
       have(runawayFamiliar) &&
       availableFamiliarRunaways(0) > get("_banderRunaways"), // 5 from iFlail
     prepare: (): void => {
+      print("Trying to prepare for familiar runaways", "red");
       if (
         floor((familiarWeight(runawayFamiliar) + weightAdjustment()) / 5) <= get("_banderRunaways")
       ) {
@@ -422,6 +424,7 @@ export const runawaySources: RunawaySource[] = [
       have(runawayFamiliar) &&
       availableFamiliarRunaways(0) > get("_banderRunaways"), // 10 from iFlails
     prepare: (): void => {
+      print("Trying to prepare for familiar runaways with offhand", "red");
       if (
         floor((familiarWeight(runawayFamiliar) + weightAdjustment()) / 5) <= get("_banderRunaways")
       ) {

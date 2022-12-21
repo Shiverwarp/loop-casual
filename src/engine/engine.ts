@@ -1,4 +1,4 @@
-import { cliExecute, Location, Monster, myAdventures } from "kolmafia";
+import { cliExecute, Location, Monster, myAdventures, print } from "kolmafia";
 import { Task } from "./task";
 import {
   $effect,
@@ -138,10 +138,12 @@ export class Engine extends BaseEngine<CombatActions, ActiveTask> {
       // Set up a runaway if there are combats we do not care about
       let runaway = undefined;
       if (combat.can("ignore")) {
+        print("Combat is considered ignorable", "red");
         runaway = equipFirst(outfit, runawaySources);
         resources.provide("ignore", runaway);
       }
       if (combat.can("ignoreNoBanish")) {
+        print("Combat is considered ignorable but no banish", "red");
         if (runaway !== undefined && !runaway.banishes)
           resources.provide("ignoreNoBanish", runaway);
         else
