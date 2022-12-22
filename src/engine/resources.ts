@@ -326,7 +326,9 @@ const familiarPants =
   $items`repaid diaper, Great Wolf's beastly trousers, Greaves of the Murk Lord, porcelain plus-fours`.find(
     (item) => have(item)
   );
-const familiarEquip = have($item`astral pet sweater`)
+const familiarEquip = have($item`overloaded Yule battery`)
+  ? $item`overloaded Yule battery`
+  : have($item`astral pet sweater`)
   ? $item`astral pet sweater`
   : have($item`amulet coin`)
   ? $item`amulet coin`
