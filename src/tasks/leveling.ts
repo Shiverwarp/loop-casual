@@ -4,7 +4,6 @@ import {
   familiarWeight,
   mallPrice,
   myClass,
-  myFullness,
   myLevel,
   myPrimestat,
   runChoice,
@@ -32,7 +31,6 @@ import {
 import { Quest } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
 import { args } from "../main";
-import { acquire, eatSafe } from "./diet";
 
 /*
 function primestatId(): number {
@@ -63,14 +61,14 @@ export const LevelingQuest: Quest = {
         if (!get("_aprilShower")) {
           cliExecute("shower warm");
         }
-        if (myFullness() + 2 <= args.stomach && !have($effect`Feeling Fancy`)) {
-          acquire(1, $item`roasted vegetable focaccia`, 20000);
-          eatSafe(1, $item`roasted vegetable focaccia`, args.voa);
-        }
-        if (mallPrice($item`pulled blue taffy`) <= 5000 && !have($effect`Blue Swayed`)) {
-          buy($item`pulled blue taffy`, 5);
-          use($item`pulled blue taffy`, 5);
-        }
+        //if (myFullness() + 2 <= args.stomach && !have($effect`Feeling Fancy`)) {
+        //  acquire(1, $item`roasted vegetable focaccia`, 20000);
+        //  eatSafe(1, $item`roasted vegetable focaccia`, args.voa);
+        //}
+        //if (mallPrice($item`pulled blue taffy`) <= 5000 && !have($effect`Blue Swayed`)) {
+        //  buy($item`pulled blue taffy`, 5);
+        //  use($item`pulled blue taffy`, 5);
+        //}
       },
       freeaction: true,
       limit: { tries: 1 },
