@@ -324,6 +324,7 @@ export const MiscQuest: Quest = {
     {
       name: "CMC Pills",
       ready: () =>
+        getWorkshed() === $item`cold medicine cabinet` &&
         (get("_coldMedicineConsults") === 0 ||
           totalTurnsPlayed() >= get("_nextColdMedicineConsult")) &&
         $items`Extrovermectin™`.includes(expectedColdMedicineCabinet().pill),
