@@ -338,7 +338,7 @@ export const MiscQuest: Quest = {
       name: "Trainset Leveling",
       ready: () =>
         getWorkshed() === $item`model train set` &&
-        get("trainsetPosition") - get("lastTrainsetConfiguration") >= 40,
+        get("trainsetPosition", 0) - get("lastTrainsetConfiguration", -40) >= 40,
       completed: () =>
         myLevel() >= 13 ||
         get("trainsetConfiguration") ===
@@ -360,7 +360,7 @@ export const MiscQuest: Quest = {
       ready: () =>
         myLevel() >= 13 &&
         getWorkshed() === $item`model train set` &&
-        get("trainsetPosition") - get("lastTrainsetConfiguration") >= 40,
+        get("trainsetPosition", 0) - get("lastTrainsetConfiguration", -40) >= 40,
       completed: () =>
         get("trainsetConfiguration") ===
         "coal_hopper,meat_mine,candy_factory,logging_mill,ore_hopper,grain_silo,tower_fizzy,trackside_diner",
