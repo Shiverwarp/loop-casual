@@ -4,6 +4,7 @@ import {
   expectedColdMedicineCabinet,
   familiarEquippedEquipment,
   familiarWeight,
+  getProperty,
   getWorkshed,
   itemAmount,
   myBasestat,
@@ -12,6 +13,7 @@ import {
   retrieveItem,
   retrievePrice,
   runChoice,
+  toInt,
   totalTurnsPlayed,
   use,
   useFamiliar,
@@ -338,7 +340,8 @@ export const MiscQuest: Quest = {
       name: "Trainset Leveling",
       ready: () =>
         getWorkshed() === $item`model train set` &&
-        get("trainsetPosition") - get("lastTrainsetConfiguration") >= 40,
+        toInt(getProperty("trainsetPosition")) - toInt(getProperty("lastTrainsetConfiguration")) >=
+          40,
       completed: () =>
         myLevel() >= 13 ||
         get("trainsetConfiguration") ===
@@ -360,7 +363,8 @@ export const MiscQuest: Quest = {
       ready: () =>
         myLevel() >= 13 &&
         getWorkshed() === $item`model train set` &&
-        get("trainsetPosition") - get("lastTrainsetConfiguration") >= 40,
+        toInt(getProperty("trainsetPosition")) - toInt(getProperty("lastTrainsetConfiguration")) >=
+          40,
       completed: () =>
         get("trainsetConfiguration") ===
         "coal_hopper,meat_mine,candy_factory,logging_mill,ore_hopper,grain_silo,tower_fizzy,trackside_diner",
