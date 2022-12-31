@@ -7,6 +7,7 @@ import {
   getWorkshed,
   itemAmount,
   myBasestat,
+  myLevel,
   myPrimestat,
   retrieveItem,
   retrievePrice,
@@ -328,11 +329,51 @@ export const MiscQuest: Quest = {
         (get("_coldMedicineConsults") === 0 ||
           totalTurnsPlayed() >= get("_nextColdMedicineConsult")) &&
         $items`Extrovermectin™`.includes(expectedColdMedicineCabinet().pill),
-      completed: () =>
-        get("_coldMedicineConsults") >= 5,
+      completed: () => get("_coldMedicineConsults") >= 5,
       priority: () => true,
       do: () => cliExecute("cmc pill"),
       limit: { tries: 5 },
+    },
+    {
+      name: "Trainset Leveling",
+      ready: () =>
+        getWorkshed() === $item`model train set` &&
+        get("trainsetPosition") - get("lastTrainsetConfiguration") >= 40,
+      completed: () =>
+        myLevel() >= 13 ||
+        get("trainsetConfiguration") ===
+          "coal_hopper,brawn_silo,viewing_platform,logging_mill,meat_mine,candy_factory,tower_fizzy,trackside_diner",
+      priority: () => true,
+      do: () => {
+        visitUrl("campground.php?action=workshed");
+        visitUrl(
+          "choice.php?forceoption=0&whichchoice=1485&option=1&pwd&slot[0]=8&slot[1]=17&slot[2]=3&slot[3]=6&slot[4]=1&slot[5]=7&slot[6]=2&slot[7]=19",
+          true
+        );
+        visitUrl("main.php");
+      },
+      limit: { tries: 1 },
+    },
+    {
+      name: "Trainset Farming",
+      after: ["Trainset Leveling"],
+      ready: () =>
+        myLevel() >= 13 &&
+        getWorkshed() === $item`model train set` &&
+        get("trainsetPosition") - get("lastTrainsetConfiguration") >= 40,
+      completed: () =>
+        get("trainsetConfiguration") ===
+        "coal_hopper,meat_mine,candy_factory,logging_mill,ore_hopper,grain_silo,tower_fizzy,trackside_diner",
+      priority: () => true,
+      do: () => {
+        visitUrl("campground.php?action=workshed");
+        visitUrl(
+          "choice.php?forceoption=0&whichchoice=1485&option=1&pwd&slot[0]=8&slot[1]=1&slot[2]=7&slot[3]=6&slot[4]=20&slot[5]=15&slot[6]=2&slot[7]=19",
+          true
+        );
+        visitUrl("main.php");
+      },
+      limit: { tries: 1 },
     },
     {
       name: "Autumn-aton",
