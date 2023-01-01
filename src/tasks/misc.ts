@@ -358,7 +358,7 @@ export const MiscQuest: Quest = {
       name: "Trainset Farming",
       after: ["Trainset Leveling"],
       ready: () =>
-        myLevel() >= 13 &&
+        myBasestat(myPrimestat()) >= 149 &&
         getWorkshed() === $item`model train set` &&
         get("trainsetPosition", 0) - get("lastTrainsetConfiguration", -40) >= 40,
       completed: () =>
