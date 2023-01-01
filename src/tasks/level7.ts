@@ -204,6 +204,7 @@ const Nook: Task[] = [
       (get("camelSpit") >= 100 || !have($familiar`Melodramedary`)) && !farmingNookWithAutumnaton(),
     completed: () => get("cyrptNookEvilness") <= 25,
     do: (): void => {
+      useSkill($skill`Map the Monsters`);
       if (get("mappingMonsters")) {
         visitUrl(toUrl($location`The Defiled Nook`));
         if (get("lastCopyableMonster") === $monster`spiny skelelton`) {
