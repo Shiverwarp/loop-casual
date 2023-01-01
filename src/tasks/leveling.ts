@@ -374,7 +374,7 @@ export const LevelingQuest: Quest = {
       combat: new CombatStrategy()
         .macro(() => Macro.trySkill($skill`Convert Matter to Protein`))
         .killHard(),
-      after: ["Seals"],
+      after: ["Buffs"],
       acquire: [
         {
           item: $item`makeshift garbage shirt`,
