@@ -1,17 +1,13 @@
 import {
-  buy,
   cliExecute,
   familiarWeight,
   mallPrice,
-  myClass,
   myLevel,
   myPrimestat,
   runChoice,
-  use,
   visitUrl,
 } from "kolmafia";
 import {
-  $class,
   $effect,
   $effects,
   $familiar,
@@ -296,7 +292,7 @@ export const LevelingQuest: Quest = {
       limit: { tries: 1 },
       freecombat: true,
     },
-    {
+    /*     {
       name: "Oliver's Fights",
       after: ["Buffs"],
       acquire: [],
@@ -334,7 +330,7 @@ export const LevelingQuest: Quest = {
       effects: $effects`Curiosity of Br'er Tarrypin`,
       limit: { tries: 10 },
       freecombat: true,
-    },
+    }, */
     {
       name: "Neverending Party",
       after: ["Buffs"],
