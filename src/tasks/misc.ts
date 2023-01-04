@@ -39,6 +39,7 @@ import {
 import { CombatStrategy } from "../engine/combat";
 import { Quest } from "../engine/task";
 import { OutfitSpec, step } from "grimoire-kolmafia";
+import { args } from "../main";
 
 export const MiscQuest: Quest = {
   name: "Misc",
@@ -435,6 +436,15 @@ export const MiscQuest: Quest = {
         set("_loop_casual_chef_goose", "true");
       },
       outfit: { familiar: $familiar`Grey Goose` },
+      limit: { tries: 1 },
+      freeaction: true,
+    },
+    {
+      name: "Workshed",
+      after: [],
+      priority: () => true,
+      completed: () => getWorkshed() !== $item`none` || !have(args.workshed),
+      do: () => use(args.workshed),
       limit: { tries: 1 },
       freeaction: true,
     },
