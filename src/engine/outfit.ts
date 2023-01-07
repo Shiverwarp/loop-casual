@@ -57,6 +57,7 @@ export function equipDefaults(outfit: Outfit): void {
   if (!outfit.modifier) {
     // Default outfit
     outfit.equip($item`June cleaver`);
+    if (get("sweat") < 75) outfit.equip($item`designer sweatpants`);
     if (totalTurnsPlayed() >= get("nextParanormalActivity") && get("questPAGhost") === "unstarted")
       outfit.equip($item`protonic accelerator pack`);
     outfit.equip($item`vampyric cloake`);
