@@ -23,6 +23,8 @@ import {
   have,
   Macro,
   set,
+  Witchess,
+  SourceTerminal,
 } from "libram";
 import { Quest } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
@@ -245,7 +247,7 @@ export const LevelingQuest: Quest = {
       name: "Witchess",
       after: [],
       ready: () => Witchess.have(),
-      completed: () => Witchess.fightsDone() >= 5 || myLevel() >= args.levelto,
+      completed: () => Witchess.fightsDone() >= (SourceTerminal.have() && args.digitize ? 4 : 5) || myLevel() >= args.levelto,
       do: () => Witchess.fightPiece($monster`Witchess Knight`),
       combat: new CombatStrategy().killHard(),
       outfit: {
