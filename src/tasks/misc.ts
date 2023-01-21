@@ -458,40 +458,48 @@ export const MiscQuest: Quest = {
     },
     {
       name: "Setup Digitize",
-      ready: () => SourceTerminal.have() && args.digitize && 
-                    myLevel() >= args.levelto && (!have($familiar`Grey Goose`) || familiarWeight($familiar`Grey Goose`) >= 6),
+      ready: () => SourceTerminal.have() && args.digitize && myLevel() >= args.levelto,
       completed: () => get("_sourceTerminalDigitizeMonster") === $monster`Witchess Knight`,
-      prepare: () =>  {
+      prepare: () => {
         if (!SourceTerminal.isCurrentSkill($skill`Digitize`))
           SourceTerminal.educate($skill`Digitize`);
       },
       priority: () => true,
       do: () => {
-        if (Witchess.have()){
+        if (Witchess.have()) {
           Witchess.fightPiece($monster`Witchess Knight`);
-        } else if (CombatLoversLocket.have() && CombatLoversLocket.availableLocketMonsters().includes($monster`Witchess Knight`) && 
-                    CombatLoversLocket.reminiscesLeft() > 1) {
-          CombatLoversLocket.reminisce($monster`Witchess Knight`)
-        } else if (!get("_photocopyUsed") && have($item`Clan VIP Lounge key`) && canFaxbot($monster`Witchess Knight`)){
+        } else if (
+          CombatLoversLocket.have() &&
+          CombatLoversLocket.availableLocketMonsters().includes($monster`Witchess Knight`) &&
+          CombatLoversLocket.reminiscesLeft() > 1
+        ) {
+          CombatLoversLocket.reminisce($monster`Witchess Knight`);
+        } else if (
+          !get("_photocopyUsed") &&
+          have($item`Clan VIP Lounge key`) &&
+          canFaxbot($monster`Witchess Knight`)
+        ) {
           chatPrivate("cheesefax", "Witchess Knight");
-          for(var i = 0; i < 3; i++){
+          for (var i = 0; i < 3; i++) {
             wait(10);
             if (checkFax($monster`Witchess Knight`)) {
               use($item`photocopied monster`);
               break;
             }
           }
-        } 
+        }
         if (get("_sourceTerminalDigitizeMonster") != $monster`Witchess Knight`) {
           buy($item`pocket wish`, 1, 50000);
           cliExecute("genie monster witchess knight");
         }
       },
-      combat: new CombatStrategy().macro(
-        new Macro().trySkill($skill`Digitize`).trySkill($skill`Emit Matter Duplicating Drones`)
-        ).killHard(),
+      combat: new CombatStrategy()
+        .macro(
+          new Macro().trySkill($skill`Digitize`).trySkill($skill`Emit Matter Duplicating Drones`)
+        )
+        .killHard(),
       outfit: (): OutfitSpec => {
-        if (have($familiar`Grey Goose`)){
+        if (have($familiar`Grey Goose`)) {
           return {
             familiar: $familiar`Grey Goose`,
             // Get 11 famexp at the end of the fight, to maintain goose weight
@@ -500,8 +508,8 @@ export const MiscQuest: Quest = {
             acc1: $item`teacher's pen`,
             acc2: $item`teacher's pen`,
             acc3: $item`teacher's pen`,
-          }
-        } else return {}
+          };
+        } else return {};
       },
       limit: { tries: 1 },
     },
