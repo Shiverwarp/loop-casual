@@ -59,7 +59,7 @@ function farmingNookWithAutumnaton() {
       Shiverwarp edit: If our camel spit would take us below 13 evil, we should just do it. We get 4 eyes from the nost spit, 2 from carto.
       So 18 evilness from eyes, and then 6 from the 2 kills with slay the dead + gravy boat. So 24 total, which means if we're at 37 evilness it will be done
 
-      We also should just do it if our current autumnaton quest + next quest will take longer than myadventures + 20 (estimating turns to do extras + tower)
+      We also should just do it if our current autumnaton quest + 20 will take longer than myadventures  (estimating turns to do extras + tower)
       Check we've also done diet because our adventures could be lower before then
   */
   return (
@@ -80,7 +80,7 @@ function farmingNookWithAutumnaton() {
         step("questL10Garbage") === 999 &&
         step("questL11MacGuffin") === 999 &&
         step("questL12War") === 999) ||
-      (AutumnAton.turnsLeft() + AutumnAton.turnsForQuest() > myAdventures() + 20 &&
+      (AutumnAton.turnsLeft() + 20 > myAdventures() &&
         (myDaycount() > 1 || (myFullness() >= args.stomach && myInebriety() >= args.liver)))
     )
   );
