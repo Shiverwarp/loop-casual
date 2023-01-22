@@ -3,6 +3,10 @@ import {
   cliExecute,
   initiativeModifier,
   Item,
+  myAdventures,
+  myDaycount,
+  myFullness,
+  myInebriety,
   myLevel,
   runChoice,
   toUrl,
@@ -18,6 +22,7 @@ import {
   $monster,
   $monsters,
   $skill,
+  AutumnAton,
   ensureEffect,
   get,
   have,
@@ -26,6 +31,7 @@ import {
 import { Quest, Task } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
 import { OutfitSpec, step } from "grimoire-kolmafia";
+import { args } from "../main";
 
 function tuneCape(): void {
   if (
@@ -49,24 +55,33 @@ function farmingNookWithAutumnaton() {
       until we've completed all of the other quests so we don't waste any evil eyes.
 
       This function returns true if the nook is available to farm and we still have other quests to complete.
+
+      Shiverwarp edit: If our camel spit would take us below 13 evil, we should just do it. We get 4 eyes from the nost spit, 2 from carto.
+      So 18 evilness from eyes, and then 6 from the 2 kills with slay the dead + gravy boat. So 24 total, which means if we're at 37 evilness it will be done
+
+      We also should just do it if our current autumnaton quest + next quest will take longer than myadventures + 20 (estimating turns to do extras + tower)
+      Check we've also done diet because our adventures could be lower before then
   */
   return (
     get("hasAutumnaton") &&
     get("cyrptNookEvilness") < 50 &&
+    get("cyrptNookEvilness") > 38 &&
     !(
-      step("questL02Larva") === 999 &&
-      step("questL03Rat") === 999 &&
-      step("questL04Bat") === 999 &&
-      step("questL05Goblin") === 999 &&
-      step("questL06Friar") === 999 &&
-      get("cyrptAlcoveEvilness") === 0 &&
-      get("cyrptCrannyEvilness") === 0 &&
-      get("cyrptNicheEvilness") === 0 &&
-      step("questL08Trapper") === 999 &&
-      step("questL09Topping") === 999 &&
-      step("questL10Garbage") === 999 &&
-      step("questL11MacGuffin") === 999 &&
-      step("questL12War") === 999
+      (step("questL02Larva") === 999 &&
+        step("questL03Rat") === 999 &&
+        step("questL04Bat") === 999 &&
+        step("questL05Goblin") === 999 &&
+        step("questL06Friar") === 999 &&
+        get("cyrptAlcoveEvilness") === 0 &&
+        get("cyrptCrannyEvilness") === 0 &&
+        get("cyrptNicheEvilness") === 0 &&
+        step("questL08Trapper") === 999 &&
+        step("questL09Topping") === 999 &&
+        step("questL10Garbage") === 999 &&
+        step("questL11MacGuffin") === 999 &&
+        step("questL12War") === 999) ||
+      (AutumnAton.turnsLeft() + AutumnAton.turnsForQuest() > myAdventures() + 20 &&
+        (myDaycount() > 1 || (myFullness() >= args.stomach && myInebriety() >= args.liver)))
     )
   );
 }
