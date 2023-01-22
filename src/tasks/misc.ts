@@ -694,3 +694,10 @@ function getScore(): number {
   if (score === "") return 0;
   return parseInt(score.replace(",", ""));
 }
+
+function checkFax(mon: Monster): boolean {
+  if (!have($item`photocopied monster`)) cliExecute("fax receive");
+  if (get("photocopyMonster") === mon) return true;
+  cliExecute("fax send");
+  return false;
+}
