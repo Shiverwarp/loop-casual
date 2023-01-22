@@ -424,9 +424,9 @@ export const MiscQuest: Quest = {
         else if (AutumnAton.availableLocations().includes($location`The Defiled Nook`)) {
           AutumnAton.sendTo($location`The Defiled Nook`);
         }
-        //If all else fails, grab an autumn leaf. This shouldn't ever happen
+        //If all else fails, try to send to red zep for glarks. this might infinite loop if we can't access, but we should always be able to access it by now
         else {
-          AutumnAton.sendTo($location`The Sleazy Back Alley`);
+          AutumnAton.sendTo($location`The Red Zeppelin`);
         }
       },
       limit: { tries: 15 },
