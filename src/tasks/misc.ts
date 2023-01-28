@@ -632,7 +632,11 @@ export const DigitalQuest: Quest = {
       ready: () => get("8BitColor", "black") === "red",
       // eslint-disable-next-line libram/verify-constants
       do: $location`The Fungus Plains`,
-      outfit: { modifier: "meat", equip: $items`continuum transfunctioner` },
+      outfit: {
+        modifier: "meat",
+        equip: $items`continuum transfunctioner`,
+        familiar: $familiar`Hobo Monkey`,
+      },
       combat: new CombatStrategy().kill(),
       limit: { tries: 21 },
       delay: 5,
@@ -668,7 +672,11 @@ export const DigitalQuest: Quest = {
       ready: () => get("8BitColor", "black") === "green",
       // eslint-disable-next-line libram/verify-constants
       do: $location`Hero's Field`,
-      outfit: { modifier: "item", equip: $items`continuum transfunctioner` },
+      outfit: {
+        modifier: "item",
+        equip: $items`continuum transfunctioner`,
+        familiar: $familiar`Jumpsuited Hound Dog`,
+      },
       combat: new CombatStrategy().kill(),
       limit: { tries: 21 },
       delay: 5,
