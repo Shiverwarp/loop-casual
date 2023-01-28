@@ -3,6 +3,7 @@ import {
   cliExecute,
   haveEquipped,
   itemAmount,
+  mallPrice,
   myLevel,
   runChoice,
   use,
@@ -127,6 +128,20 @@ const Desert: Task[] = [
           res = runChoice(2);
         }
         runChoice(1);
+      }
+      if (
+        mallPrice($item`milestone`) < 1.6 * get("valueOfAdventure") &&
+        get("desertExploration") < 97
+      ) {
+        while (get("desertExploration") < 97 && itemAmount($item`milestone`) > 0) {
+          use($item`milestone`);
+        }
+        while (
+          get("desertExploration") < 97 &&
+          buy(1, $item`milestone`, 1.6 * get("valueOfAdventure")) > 0
+        ) {
+          use($item`milestone`);
+        }
       }
       cliExecute("use * desert sightseeing pamphlet");
       if (have($item`worm-riding hooks`)) use($item`drum machine`);
