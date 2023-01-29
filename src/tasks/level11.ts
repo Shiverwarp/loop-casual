@@ -129,6 +129,8 @@ const Desert: Task[] = [
         }
         runChoice(1);
       }
+      cliExecute("use * desert sightseeing pamphlet");
+      if (have($item`worm-riding hooks`)) use($item`drum machine`);
       if (
         mallPrice($item`milestone`) < 1.6 * get("valueOfAdventure") &&
         get("desertExploration") < 97
@@ -143,8 +145,6 @@ const Desert: Task[] = [
           use($item`milestone`);
         }
       }
-      cliExecute("use * desert sightseeing pamphlet");
-      if (have($item`worm-riding hooks`)) use($item`drum machine`);
     },
     limit: { soft: 30 },
     delay: 25,
