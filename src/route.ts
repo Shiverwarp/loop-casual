@@ -16,11 +16,11 @@ export const routing: string[] = [
   // Start with the basic leveling tasks
   "Toot/Finish",
   "Leveling/Buffs",
-  "Leveling/Daycare",
-  "Leveling/Bastille",
+  //"Leveling/Daycare",
+  //"Leveling/Bastille",
   "Leveling/Leaflet",
-  "Leveling/Snojo",
-  "Leveling/Chateau",
+  //"Leveling/Snojo",
+  //"Leveling/Chateau",
 
   // Then do the scaling leveling
   "Leveling/Oliver's Fights",
