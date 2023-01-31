@@ -23,6 +23,7 @@ import {
   useSkill,
   visitUrl,
   wait,
+  equip,
 } from "kolmafia";
 import {
   $effect,
@@ -44,6 +45,7 @@ import {
   uneffect,
   SourceTerminal,
   Witchess,
+  $slot,
 } from "libram";
 import { CombatStrategy } from "../engine/combat";
 import { Quest } from "../engine/task";
@@ -621,6 +623,7 @@ export const DigitalQuest: Quest = {
         runChoice(1);
         runChoice(1);
         runChoice(1);
+        equip($item`continuum transfunctioner`);
       },
       limit: { tries: 1 },
       freeaction: true,
