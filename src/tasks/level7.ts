@@ -284,7 +284,6 @@ const Nook: Task[] = [
     after: ["Start"],
     prepare: tuneCape,
     acquire: [{ item: $item`gravy boat` }],
-    priority: () => get("hasAutumnaton"),
     ready: () =>
       (get("cyrptNookEvilness") < 30 || get("hasAutumnaton")) &&
       !have($item`evil eye`) &&
