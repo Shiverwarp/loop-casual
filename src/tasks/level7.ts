@@ -270,6 +270,7 @@ const Nook: Task[] = [
   {
     name: "Nook Eye", // In case we get eyes from outside sources (Nostalgia)
     after: ["Start"],
+    priority: () => true,
     ready: () => have($item`evil eye`),
     completed: () => get("cyrptNookEvilness") <= 13,
     do: (): void => {
