@@ -284,6 +284,7 @@ const Nook: Task[] = [
     after: ["Start"],
     prepare: tuneCape,
     acquire: [{ item: $item`gravy boat` }],
+    priority: () => $location`The Defiled Nook`.turnsSpent < 1,
     ready: () =>
       (get("cyrptNookEvilness") < 30 || get("hasAutumnaton")) &&
       !have($item`evil eye`) &&
