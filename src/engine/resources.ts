@@ -1,5 +1,6 @@
 import { OutfitSpec } from "grimoire-kolmafia";
 import {
+  availableAmount,
   buy,
   cliExecute,
   Familiar,
@@ -194,24 +195,31 @@ export const wandererSources: WandererSource[] = [
       args.digitize &&
       get("_sourceTerminalDigitizeMonster") === $monster`Witchess Knight` &&
       Counter.get("Digitize Monster") <= 0,
-    equip: have($familiar`Grey Goose`) ? {
-            familiar: $familiar`Grey Goose`,
-            // Get 11 famexp at the end of the fight, to maintain goose weight
-            offhand: $item`yule hatchet`,
-            famequip: $item`grey down vest`,
-            acc1: $item`teacher's pen`,
-            acc2: $item`teacher's pen`,
-            acc3: $item`teacher's pen`,
-        } : {},
-    prepare: () =>  {
-        if (!SourceTerminal.isCurrentSkill($skill`Digitize`))
-          SourceTerminal.educate($skill`Digitize`);
-      },
+    equip: have($familiar`Grey Goose`)
+      ? {
+          familiar: $familiar`Grey Goose`,
+          // Get 11 famexp at the end of the fight, to maintain goose weight
+          offhand: $item`yule hatchet`,
+          famequip: $item`grey down vest`,
+          acc1: $item`teacher's pen`,
+          acc2: $item`teacher's pen`,
+          acc3: $item`teacher's pen`,
+        }
+      : {},
+    prepare: () => {
+      if (!SourceTerminal.isCurrentSkill($skill`Digitize`))
+        SourceTerminal.educate($skill`Digitize`);
+    },
     monsters: [$monster`witchess knight`],
     chance: () => 1,
-    macro: () => new Macro().trySkill($skill`Emit Matter Duplicating Drones`).externalIf(
-      SourceTerminal.getDigitizeMonsterCount() >= 4 && SourceTerminal.getDigitizeUsesRemaining() > 1,
-      new Macro().trySkill("Digitize")),
+    macro: () =>
+      new Macro()
+        .trySkill($skill`Emit Matter Duplicating Drones`)
+        .externalIf(
+          SourceTerminal.getDigitizeMonsterCount() >= 4 &&
+            SourceTerminal.getDigitizeUsesRemaining() > 1,
+          new Macro().trySkill("Digitize")
+        ),
   },
   {
     name: "Voted Legs",
@@ -536,6 +544,18 @@ export const runawaySources: RunawaySource[] = [
     },
     do: new Macro().item($item`peppermint parasol`),
     chance: () => (get("_navelRunaways") < 3 ? 1 : 0.2),
+    banishes: false,
+  },
+  {
+    name: "GOTO",
+    available: () => mallPrice($item`GOTO`) < runawayValue,
+    prepare: (): void => {
+      if (!(itemAmount($item`GOTO`) >= 30)) {
+        buy($item`GOTO`, 30 - itemAmount($item`GOTO`), runawayValue);
+      }
+    },
+    do: new Macro().tryItem($item`GOTO`).repeat(),
+    chance: () => 1,
     banishes: false,
   },
 ];
