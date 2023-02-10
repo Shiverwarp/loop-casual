@@ -507,6 +507,20 @@ export const runawaySources: RunawaySource[] = [
     banishes: false,
   },
   {
+    // Goto's have a 30% chance, so it takes an average of 3 1/3rd gotos to free run
+    // Have a stock of 30 required in case of extreme unluck
+    name: "GOTO",
+    available: () => (100 / 30) * mallPrice($item`GOTO`) < runawayValue,
+    prepare: (): void => {
+      if (!(itemAmount($item`GOTO`) >= 30)) {
+        buy($item`GOTO`, 30 - itemAmount($item`GOTO`), runawayValue);
+      }
+    },
+    do: new Macro().tryItem($item`GOTO`).repeat(),
+    chance: () => 1,
+    banishes: false,
+  },
+  {
     name: "GAP",
     available: () => have($item`Greatest American Pants`),
     equip: $item`Greatest American Pants`,
@@ -544,18 +558,6 @@ export const runawaySources: RunawaySource[] = [
     },
     do: new Macro().item($item`peppermint parasol`),
     chance: () => (get("_navelRunaways") < 3 ? 1 : 0.2),
-    banishes: false,
-  },
-  {
-    name: "GOTO",
-    available: () => mallPrice($item`GOTO`) < runawayValue,
-    prepare: (): void => {
-      if (!(itemAmount($item`GOTO`) >= 30)) {
-        buy($item`GOTO`, 30 - itemAmount($item`GOTO`), runawayValue);
-      }
-    },
-    do: new Macro().tryItem($item`GOTO`).repeat(),
-    chance: () => 1,
     banishes: false,
   },
 ];
