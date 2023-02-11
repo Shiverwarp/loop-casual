@@ -516,7 +516,7 @@ export const runawaySources: RunawaySource[] = [
         buy($item`GOTO`, 30 - itemAmount($item`GOTO`), runawayValue);
       }
     },
-    do: new Macro().tryItem($item`GOTO`).repeat(),
+    do: new Macro().item($item`GOTO`).repeat(),
     chance: () => 1,
     banishes: false,
   },
