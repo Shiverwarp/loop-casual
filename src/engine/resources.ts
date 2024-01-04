@@ -511,11 +511,10 @@ export const runawaySources: RunawaySource[] = [
     // Goto's have a 30% chance, so it takes an average of 3 1/3rd gotos to free run
     // Have a stock of 30 required in case of extreme unluck
     name: "GOTO",
-    available: () => (100 / 30) * mallPrice($item`GOTO`) < runawayValue && myMeat() > 500000,
+    available: () =>
+      mallPrice($item`GOTO`) <= runawayValue && !have($effect`Everything Looks Green`),
     prepare: (): void => {
-      if (!(itemAmount($item`GOTO`) >= 30)) {
-        buy($item`GOTO`, 30 - itemAmount($item`GOTO`), runawayValue);
-      }
+      retrieveItem(1, $item`GOTO`);
     },
     do: new Macro().item($item`GOTO`).repeat(),
     chance: () => 1,
