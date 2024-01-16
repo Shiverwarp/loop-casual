@@ -23,8 +23,6 @@ import {
   have,
   Macro,
   set,
-  Witchess,
-  SourceTerminal,
 } from "libram";
 import { Quest } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";

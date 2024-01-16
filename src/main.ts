@@ -10,7 +10,7 @@ import {
   takeCloset,
   turnsPlayed,
 } from "kolmafia";
-import { all_tasks, level_tasks, organ_tasks, quest_tasks } from "./tasks/all";
+import { all_tasks, level_tasks, menagerie_tasks, organ_tasks, quest_tasks } from "./tasks/all";
 import { prioritize } from "./route";
 import { Engine } from "./engine/engine";
 import { convertMilliseconds, debug } from "./lib";
@@ -33,6 +33,7 @@ export const args = Args.create("loopcasual", "A script to complete casual runs.
       ["level", "Level up only."],
       ["quests", "Complete all quests only."],
       ["organ", "Get your steel organ only."],
+      ["menagerie", "Unlock the menagerie only."],
       ["!organ", "Level up and complete all quests only."],
     ],
     default: "all",
@@ -118,6 +119,9 @@ export function main(command?: string): void {
     case "organ":
       tasks = prioritize(organ_tasks(), true);
       break;
+    case "menagerie":
+      tasks = prioritize(menagerie_tasks(), true);
+      break;
     case "!organ":
       tasks = prioritize([...level_tasks(), ...quest_tasks()], true);
       break;
@@ -194,6 +198,8 @@ function runComplete(): boolean {
       return step("questL13Final") === 999;
     case "organ":
       return have($skill`Liver of Steel`);
+    case "menagerie":
+      return have($item`Cobb's Knob Menagerie key`);
     case "!organ":
       return step("questL13Final") === 999 && myLevel() >= args.levelto;
     default:

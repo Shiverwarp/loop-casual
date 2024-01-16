@@ -3,7 +3,7 @@ import { TootQuest } from "./level1";
 import { MosquitoQuest } from "./level2";
 import { TavernQuest } from "./level3";
 import { BatQuest } from "./level4";
-import { KnobQuest } from "./level5";
+import { KnobQuest, MenagerieQuest } from "./level5";
 import { FriarQuest, OrganQuest } from "./level6";
 import { CryptQuest } from "./level7";
 import { McLargeHugeQuest } from "./level8";
@@ -80,4 +80,8 @@ export function level_tasks(): Task[] {
 
 export function organ_tasks(): Task[] {
   return getTasks([TootQuest, FriarQuest, OrganQuest]);
+}
+
+export function menagerie_tasks(): Task[] {
+  return getTasks([TootQuest, KnobQuest, MenagerieQuest]);
 }

@@ -1,5 +1,5 @@
 import { myLevel, use, visitUrl } from "kolmafia";
-import { $effects, $item, $location, $monster, have } from "libram";
+import { $effects, $item, $location, $monster, $monsters, have } from "libram";
 import { Quest } from "../engine/task";
 import { CombatStrategy } from "../engine/combat";
 import { step } from "grimoire-kolmafia";
@@ -47,6 +47,26 @@ export const KnobQuest: Quest = {
       combat: new CombatStrategy().kill($monster`Knob Goblin King`),
       effects: $effects`Knob Goblin Perfume`,
       limit: { tries: 1 },
+    },
+  ],
+};
+
+export const MenagerieQuest: Quest = {
+  name: "Unlock Menagerie",
+  tasks: [
+    {
+      name: "Get Menagerie Key",
+      after: ["Knob/King"],
+      ready: () => have($item`Cobb's Knob lab key`),
+      completed: () => have($item`Cobb's Knob Menagerie key`),
+      do: $location`Cobb's Knob Laboratory`,
+      combat: new CombatStrategy()
+        .banish($monsters`Knob Goblin Alchemist, Knob Goblin Mad Scientist`)
+        .kill($monster`Knob Goblin Very Mad Scientist`),
+      outfit: {
+        modifier: "item",
+      },
+      limit: { tries: 10 },
     },
   ],
 };

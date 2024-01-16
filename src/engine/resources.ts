@@ -1,6 +1,5 @@
 import { OutfitSpec } from "grimoire-kolmafia";
 import {
-  availableAmount,
   buy,
   cliExecute,
   Familiar,
@@ -11,7 +10,6 @@ import {
   mallPrice,
   Monster,
   myLevel,
-  myMeat,
   myTurncount,
   retrieveItem,
   Skill,
@@ -35,11 +33,12 @@ import {
   getModifier,
   have,
   Macro,
-  sum,
   SourceTerminal,
+  sum,
 } from "libram";
 import { debug } from "../lib";
 import { args } from "../main";
+import { acquire } from "../tasks/diet";
 
 export interface Resource {
   name: string;
@@ -211,7 +210,7 @@ export const wandererSources: WandererSource[] = [
       if (!SourceTerminal.isCurrentSkill($skill`Digitize`))
         SourceTerminal.educate($skill`Digitize`);
     },
-    monsters: [$monster`witchess knight`],
+    monsters: [$monster`Witchess Knight`],
     chance: () => 1,
     macro: () =>
       new Macro()
@@ -599,5 +598,12 @@ export const freekillSources: FreekillSource[] = [
     available: () => AsdonMartin.installed() && !get("_missileLauncherUsed"),
     prepare: () => AsdonMartin.fillTo(100),
     do: $skill`Asdon Martin: Missile Launcher`,
+  },
+  {
+    name: "Shadow Brick",
+    available: () =>
+      get("_shadowBricksUsed", 13) < 13 && mallPrice($item`shadow brick`) < get("valueOfAdventure"),
+    prepare: () => acquire(1, $item`shadow brick`, get("valueOfAdventure")),
+    do: $item`shadow brick`,
   },
 ];
