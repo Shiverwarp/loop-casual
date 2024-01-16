@@ -7,6 +7,7 @@ import {
   expectedColdMedicineCabinet,
   familiarEquippedEquipment,
   familiarWeight,
+  gamedayToInt,
   getProperty,
   getWorkshed,
   itemAmount,
@@ -179,11 +180,11 @@ export const MiscQuest: Quest = {
           },
           {
             monster: $monster`annoyed snake`,
-            value: 25 * 0.5 + 25,
+            value: gamedayToInt(),
           },
           {
             monster: $monster`slime blob`,
-            value: 20 * 0.4 + 50 * 0.2 + 250 * 0.01,
+            value: 95 - gamedayToInt(),
           },
         ];
 
