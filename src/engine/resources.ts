@@ -507,16 +507,11 @@ export const runawaySources: RunawaySource[] = [
     banishes: false,
   },
   {
-    // Goto's have a 30% chance, so it takes an average of 3 1/3rd gotos to free run
-    // Have a stock of 30 required in case of extreme unluck
-    name: "GOTO",
-    available: () =>
-      mallPrice($item`GOTO`) <= runawayValue && !have($effect`Everything Looks Green`),
-    prepare: (): void => {
-      retrieveItem(1, $item`GOTO`);
-    },
-    do: new Macro().item($item`GOTO`).repeat(),
+    name: "Spring Shoes",
+    available: () => have($item`spring shoes`) && !have($effect`Everything Looks Green`),
+    do: new Macro().skill($skill`Spring Away`),
     chance: () => 1,
+    equip: $item`spring shoes`,
     banishes: false,
   },
   {
