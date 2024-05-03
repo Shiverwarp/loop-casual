@@ -123,7 +123,7 @@ export const banishSources: BanishSource[] = [
     prepare: () => {
       retrieveItem($item`Louder Than Bomb`);
     },
-    available: () => true,
+    available: () => mallPrice($item`Louder Than Bomb`) < get(`valueOfAdventure`),
     do: $item`Louder Than Bomb`,
   },
   {
@@ -131,7 +131,7 @@ export const banishSources: BanishSource[] = [
     prepare: () => {
       retrieveItem($item`tennis ball`);
     },
-    available: () => true,
+    available: () => mallPrice($item`tennis ball`) < get(`valueOfAdventure`),
     do: $item`tennis ball`,
   },
   {
@@ -139,7 +139,7 @@ export const banishSources: BanishSource[] = [
     prepare: () => {
       retrieveItem($item`divine champagne popper`);
     },
-    available: () => true,
+    available: () => mallPrice($item`divine champagne popper`) < get(`valueOfAdventure`),
     do: $item`divine champagne popper`,
   },
   // Turn-taking banishes: lowest priority
@@ -148,7 +148,7 @@ export const banishSources: BanishSource[] = [
     prepare: () => {
       retrieveItem($item`crystal skull`);
     },
-    available: () => true,
+    available: () => mallPrice($item`crystal skull`) < get(`valueOfAdventure`),
     do: $item`crystal skull`,
   },
 ];
