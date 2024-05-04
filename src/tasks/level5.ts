@@ -61,7 +61,7 @@ export const MenagerieQuest: Quest = {
       completed: () => have($item`Cobb's Knob Menagerie key`),
       do: $location`Cobb's Knob Laboratory`,
       combat: new CombatStrategy()
-        .banish($monsters`Knob Goblin Alchemist, Knob Goblin Mad Scientist`)
+        .ignore($monsters`Knob Goblin Alchemist, Knob Goblin Mad Scientist`)
         .kill($monster`Knob Goblin Very Mad Scientist`),
       outfit: {
         modifier: "item",
