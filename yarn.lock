@@ -1988,10 +1988,10 @@ graceful-fs@^4.1.2, graceful-fs@^4.2.4, graceful-fs@^4.2.9:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
 
-grimoire-kolmafia@0.3.17:
-  version "0.3.17"
-  resolved "https://registry.yarnpkg.com/grimoire-kolmafia/-/grimoire-kolmafia-0.3.17.tgz#3d87328afacc82f9da7f43c044d3a33402add57a"
-  integrity sha512-7Hi/iCG2oTUsoAxe5hRD5rKXIQYlbegZhA9fKAIasA+KXOR/Nme0lgGOfzIFcmfayo0VpyC442UxNzm2S66xfw==
+grimoire-kolmafia@^0.3.26:
+  version "0.3.26"
+  resolved "https://registry.yarnpkg.com/grimoire-kolmafia/-/grimoire-kolmafia-0.3.26.tgz#651eeb440f1ae29be9c209abd4848638e2fae990"
+  integrity sha512-lePvPPpFsHBdjtA+nxwfPXu0eKyDt4kLEeTo3Alhe8NE1iFG6nMo9HypQPOKXstjUdSPVu0Uj2bR9cwdAQPZDw==
   dependencies:
     core-js "^3.16.4"
 
@@ -2187,10 +2187,10 @@ kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
-kolmafia@^5.27321.0:
-  version "5.27326.0"
-  resolved "https://registry.yarnpkg.com/kolmafia/-/kolmafia-5.27326.0.tgz#24237f6f89e9cd3871710b1c1db7b02030d14146"
-  integrity sha512-rbRa8D6QSsy4m8+3KCO/g28RnOMEajEb7JPKQCMQMkzr+CMXzlVhQWvkyn/2XmLC06PjrDIk/FF7/FQs4ngJ+g==
+kolmafia@^5.27920.0:
+  version "5.27932.0"
+  resolved "https://registry.yarnpkg.com/kolmafia/-/kolmafia-5.27932.0.tgz#c5d889afb4dd8b3c77291db97537947815798025"
+  integrity sha512-r/Gs65KvaaJROLa+5VT4xWnoRMzSApeiGd7/bl2Q7jOnEW1Ous9/zchz5TsRY4xQSazsNOoFLvCSQvSdKC2fTQ==
 
 levn@^0.4.1:
   version "0.4.1"

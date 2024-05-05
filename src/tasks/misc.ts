@@ -537,13 +537,9 @@ export const KeysQuest: Quest = {
       do: (): void => {
         useSkill($skill`Lock Picking`);
       },
-      choices: {
-        1414: (): number => {
-          if (!have($item`Boris's key`)) return 1;
-          else if (!have($item`Jarlsberg's key`)) return 2;
-          else return 3;
-        },
-      },
+      choices: () => ({
+        1414: !have($item`Boris's key`) ? 1 : !have($item`Jarlsberg's key`) ? 2 : 3,
+      }),
       limit: { tries: 1 },
       freeaction: true,
     },
